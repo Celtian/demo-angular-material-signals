@@ -347,6 +347,13 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/material@21.0.3":
+  version "21.0.3"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-21.0.3.tgz#54fec8162497beb13b6fb0cfdc67c87cb5e38c39"
+  integrity sha512-Sjv88NbW8R5UTBqoVa8q4p55VP7KPEmXFTJiQYCz1oK7JqbLcQnH27rjetQBAWMEb1O/z1jqpMnpnYUuHNp1IA==
+  dependencies:
+    tslib "^2.3.0"
+
 "@angular/platform-browser@^21.0.5":
   version "21.0.5"
   resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-21.0.5.tgz#728acdf3dab876f880bd225dcd60a91ef8988d2f"
