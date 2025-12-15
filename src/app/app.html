@@ -1,10 +1,9 @@
 <header class="sticky top-0 z-10">
   <mat-toolbar color="primary" role="navigation">
     <nav class="container flex items-center justify-between gap-2">
-      <a mat-button [routerLink]="['/']">CRUD Demo</a>
-      <!-- 
-      <button mat-button (click)="toggleLanguage()" class="uppercase">{{ lang }}</button>
-      -->
+      <a mat-button [routerLink]="['/']">Signals Demo</a>
+
+      <button mat-button (click)="toggleLanguage()" class="uppercase">{{ lang( ) }}</button>
     </nav>
   </mat-toolbar>
 </header>
@@ -15,6 +14,6 @@
 
 <footer class="fixed bottom-0 w-full text-center">
   <mat-toolbar color="primary">
-    <div class="container text-sm">todo</div>
+    <div class="container text-sm">{{ 'footer.content' | transloco: { endYear } }}</div>
   </mat-toolbar>
 </footer>

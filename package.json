@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "fix-vulnerabilities": "npx yarn-audit-fix && npx browserslist --update-db"
+    "fix-vulnerabilities": "npx yarn-audit-fix && npx browserslist --update-db",
+    "i18n:extract": "transloco-keys-manager extract --sort --unflat --langs en cs --default-value '███' --remove-extra-keys --output public/i18n"
   },
   "private": true,
   "packageManager": "yarn@1.22.22",
@@ -33,6 +34,7 @@
     "@commitlint/cli": "^20.2.0",
     "@commitlint/config-angular": "^20.2.0",
     "@eslint/js": "^9.39.2",
+    "@jsverse/transloco-keys-manager": "^7.1.0",
     "@tailwindcss/postcss": "^4.1.18",
     "angular-eslint": "21.1.0",
     "eslint": "^9.39.2",

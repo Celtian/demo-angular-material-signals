@@ -22,5 +22,11 @@
     "prefix": "elem",
     "body": ["private readonly element = inject(ElementRef);"],
     "description": "ElementRef added."
+  },
+  "TranslocoService": {
+    "scope": "typescript",
+    "prefix": "transloco",
+    "body": ["public readonly transloco = inject(TranslocoService);"],
+    "description": "TranslocoService added."
   }
 }

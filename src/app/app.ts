@@ -1,15 +1,37 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { MatButton } from '@angular/material/button';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { filter, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, MatToolbar],
+  imports: [RouterOutlet, RouterLink, MatToolbar, MatButton, TranslocoPipe],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex flex-col min-h-screen' },
 })
 export class App {
+  public readonly endYear = new Date().getFullYear(); // todo replace
+  public readonly transloco = inject(TranslocoService);
+
+  public readonly lang = toSignal(
+    this.transloco.events$.pipe(
+      filter((e) => e.type === 'langChanged'),
+      startWith(this.transloco.getActiveLang()),
+      map(() => this.transloco.getActiveLang()),
+    ),
+    {
+      initialValue: this.transloco.getActiveLang(),
+    },
+  );
+
   protected readonly title = signal('demo-angular-material-signals');
+
+  public toggleLanguage(): void {
+    this.transloco.setActiveLang(this.transloco.getActiveLang() === 'en' ? 'cs' : 'en');
+  }
 }
