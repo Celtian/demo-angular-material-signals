@@ -7,6 +7,6 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './post-detail.html',
   styleUrl: './post-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block container m-auto py-4 space-y-2' },
+  host: { class: 'block container m-auto p-4 space-y-2' },
 })
 export class PostDetail {}

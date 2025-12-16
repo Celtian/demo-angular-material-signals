@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Field, form, required } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,11 +8,11 @@ import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-post-edit',
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, Field, TranslocoPipe, JsonPipe],
+  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, Field, TranslocoPipe],
   templateUrl: './post-edit.html',
   styleUrl: './post-edit.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block container m-auto py-4 space-y-2' },
+  host: { class: 'block container m-auto p-4 space-y-2' },
 })
 export class PostEdit {
   public readonly model = signal({ title: '', content: '' });

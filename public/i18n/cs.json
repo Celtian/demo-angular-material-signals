@@ -5,6 +5,17 @@
   "footer": {
     "content": "Všechna práva vyhrazena © {{ endYear }}"
   },
+  "form": {
+    "post": {
+      "body": {
+        "label": "Obsah",
+        "placeholder": "Napiště něco zde…"
+      },
+      "title": {
+        "label": "Název"
+      }
+    }
+  },
   "mat-paginator": {
     "first-page": "První stránka",
     "items-per-page": "Položek na stránku",
@@ -38,6 +49,8 @@
       "show-actions": "Zobrazit akce"
     },
     "detail": "Detail",
-    "edit": "Upravit"
+    "edit": "Upravit",
+    "reset": "Resetovat",
+    "submit": "Potvrdit"
   }
 }

@@ -5,6 +5,17 @@
   "footer": {
     "content": "All rights reserved © {{ endYear }}"
   },
+  "form": {
+    "post": {
+      "body": {
+        "label": "Body",
+        "placeholder": "Type something here…"
+      },
+      "title": {
+        "label": "Title"
+      }
+    }
+  },
   "mat-paginator": {
     "first-page": "First page",
     "items-per-page": "Items per page",
@@ -14,7 +25,7 @@
     "previous-page": "Previous page"
   },
   "not-found": {
-     "content": "Page was not found"
+    "content": "Page was not found"
   },
   "table": {
     "posts": {
@@ -31,13 +42,15 @@
   },
   "uni": {
     "aria-label": {
-       "error-icon": "Error icon",
+      "error-icon": "Error icon",
       "expand-row": "expand row",
       "row-actions": "row actions",
       "select-page-of-posts": "Select page of posts",
       "show-actions": "Show actions"
     },
     "detail": "Detail",
-    "edit": "Edit"
+    "edit": "Edit",
+    "reset": "Reset",
+    "submit": "Submit"
   }
 }
