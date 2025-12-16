@@ -67,6 +67,8 @@
       "show-actions": "Show actions",
       "warning-icon": "Warning icon"
     },
+    "clear-filters": "Clear filters",
+    "create": "Create",
     "delete": "Delete",
     "detail": "Detail",
     "edit": "Edit",

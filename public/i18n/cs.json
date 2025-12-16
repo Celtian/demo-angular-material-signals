@@ -67,6 +67,8 @@
       "show-actions": "Zobrazit akce",
       "warning-icon": "Ikona varování"
     },
+    "clear-filters": "Vymazat filtry",
+    "create": "Vytvořit",
     "delete": "Smazat",
     "detail": "Detail",
     "edit": "Upravit",

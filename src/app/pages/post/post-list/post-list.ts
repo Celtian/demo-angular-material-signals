@@ -95,4 +95,14 @@ export class PostList {
   public onDelete() {
     throw new Error('Method not implemented.');
   }
+
+  public onClear(): void {
+    this.setFiltersToRoute({
+      query: null,
+      pageIndex: null,
+      pageSize: null,
+      sortBy: null,
+      sortDirection: null,
+    });
+  }
 }

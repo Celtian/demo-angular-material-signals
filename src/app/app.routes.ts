@@ -16,6 +16,7 @@ export const routes: Routes = [
     data: {
       breadcrumb: 'Create',
     },
+    canDeactivate: [CanDeactivateGuardService],
   },
   {
     path: ':id',

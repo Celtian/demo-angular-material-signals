@@ -1,5 +1,10 @@
 <mat-card>
   <mat-card-content>
+    <div class="flex items-end justify-end gap-2">
+      <button mat-button (click)="onClear()">{{ 'uni.clear-filters' | transloco }}</button>
+
+      <a mat-button [routerLink]="['/' + ROUTE_DEFINITION.POSTS.CREATE]">{{ 'uni.create' | transloco }}</a>
+    </div>
     <table
       mat-table
       [fixedLayout]="true"
