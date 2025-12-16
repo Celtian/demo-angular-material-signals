@@ -91,7 +91,34 @@
           [attr.colspan]="displayedColumnsExpanded.length"
         >
           @if (expandedElement() === element) {
-            <div [class.my-2]="element === expandedElement()">todo</div>
+            <div [class.my-2]="element === expandedElement()">
+              <app-post-list-detail [id]="element.userId">
+                <table>
+                  <colgroup>
+                    <col width="120" />
+                    <col />
+                  </colgroup>
+                  <tbody>
+                    <tr class="align-baseline">
+                      <td class="font-bold">{{ 'table.posts.id.title' | transloco }}</td>
+                      <td>{{ '#' + element.id }}</td>
+                    </tr>
+                    <tr class="align-baseline">
+                      <td class="font-bold">{{ 'table.posts.user-id.title' | transloco }}</td>
+                      <td>{{ '#' + element.userId }}</td>
+                    </tr>
+                    <tr class="align-baseline">
+                      <td class="font-bold">{{ 'table.posts.title.title' | transloco }}</td>
+                      <td>{{ element.title }}</td>
+                    </tr>
+                    <tr class="align-baseline">
+                      <td class="font-bold">{{ 'table.posts.body.title' | transloco }}</td>
+                      <td>{{ element.body }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </app-post-list-detail>
+            </div>
           }
         </td>
       </ng-container>

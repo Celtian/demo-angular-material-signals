@@ -9,6 +9,7 @@ import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { Params, Router, RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { PostListDetail } from '../../../components/post-list-detail/post-list-detail';
 import { API_URL } from '../../../constant/api.constant';
 import { ROUTE_DEFINITION } from '../../../constant/route-definition.constant';
 import { TypeSafeMatCellDef } from '../../../directives/type-safe-mat-cell-def.directive';
@@ -27,6 +28,7 @@ import { PostDto } from '../../../dto/post.dto';
     RouterLink,
     TranslocoPipe,
     TypeSafeMatCellDef,
+    PostListDetail,
   ],
   templateUrl: './post-list.html',
   styleUrl: './post-list.css',

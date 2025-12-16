@@ -1,0 +1,11 @@
+<div class="mb-2 font-bold">{{ 'post-detail.about-post' | transloco }}</div>
+
+<ng-content />
+
+<div class="my-2 font-bold">
+  {{ 'post-detail.about-author' | transloco }}
+</div>
+
+@if (resource.value(); as user) {
+  <app-user-info [user]="user" />
+}

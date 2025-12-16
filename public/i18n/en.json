@@ -52,6 +52,9 @@
       },
       "title": {
         "title": "Title"
+      },
+      "user-id": {
+        "title": "User"
       }
     }
   },
