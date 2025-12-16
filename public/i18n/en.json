@@ -1,4 +1,7 @@
 {
+  "action": {
+    "close": "Close"
+  },
   "error": {
     "post-was-not-found": "Post was not found",
     "unexpected-exception": "Unexpected error"
@@ -40,6 +43,17 @@
       "phone": "Phone",
       "username": "Username",
       "website": "Website"
+    }
+  },
+  "response": {
+    "create": {
+      "success": "Successfully created"
+    },
+    "delete": {
+      "success": "Successfully deleted"
+    },
+    "update": {
+      "success": "Succesfully updated"
     }
   },
   "table": {

@@ -1,16 +1,14 @@
 import { ErrorHandler, Injectable, inject } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { TranslocoService } from '@jsverse/transloco';
+import { NotificationService } from './notification.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomErrorHandlerService implements ErrorHandler {
-  public readonly transloco = inject(TranslocoService);
-  private snackbar = inject(MatSnackBar);
+  private readonly notification = inject(NotificationService);
 
   public handleError(error: unknown): void {
-    this.snackbar.open(this.transloco.translate('error.unexpected-exception'), 'danger');
+    this.notification.error('UNEXPECTED');
     throw error;
   }
 }

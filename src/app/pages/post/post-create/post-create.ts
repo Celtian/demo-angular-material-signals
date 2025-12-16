@@ -4,13 +4,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Observable } from 'rxjs';
 import { ConfirmDialogService } from '../../../components/confirm-dialog/confirm-dialog.service';
 import { PostInputDto } from '../../../dto/post.dto';
 import { CanComponentDeactivate } from '../../../guards/can-deactivate-guard.service';
 import { ApiService } from '../../../services/api.service';
+import { NotificationService } from '../../../services/notification.service';
 
 const DEFAULT_POST: PostInputDto = { title: '', body: '', userId: 1 };
 
@@ -23,7 +23,7 @@ const DEFAULT_POST: PostInputDto = { title: '', body: '', userId: 1 };
   host: { class: 'block container m-auto p-4 space-y-2' },
 })
 export class PostCreate implements CanComponentDeactivate {
-  private readonly snackBar = inject(MatSnackBar);
+  private readonly notification = inject(NotificationService);
   private readonly apiService = inject(ApiService);
   private readonly confirm = inject(ConfirmDialogService);
 
@@ -41,7 +41,7 @@ export class PostCreate implements CanComponentDeactivate {
     event.preventDefault();
     this.apiService.create(this.form().value()).subscribe((post) => {
       this.form().reset(post);
-      this.snackBar.open('Post updated', 'Close');
+      this.notification.success('CREATE');
     });
   }
 

@@ -5,7 +5,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Observable } from 'rxjs';
@@ -15,6 +14,7 @@ import { ROUTE_DEFINITION } from '../../../constant/route-definition.constant';
 import { PostDto } from '../../../dto/post.dto';
 import { CanComponentDeactivate } from '../../../guards/can-deactivate-guard.service';
 import { ApiService } from '../../../services/api.service';
+import { NotificationService } from '../../../services/notification.service';
 
 const DEFAULT_POST: Pick<PostDto, 'title' | 'body'> = { title: '', body: '' };
 
@@ -27,7 +27,7 @@ const DEFAULT_POST: Pick<PostDto, 'title' | 'body'> = { title: '', body: '' };
   host: { class: 'block container m-auto p-4 space-y-2' },
 })
 export class PostEdit implements CanComponentDeactivate {
-  private readonly snackBar = inject(MatSnackBar);
+  private readonly notification = inject(NotificationService);
   private readonly apiService = inject(ApiService);
   private readonly router = inject(Router);
   private readonly confirm = inject(ConfirmDialogService);
@@ -52,7 +52,7 @@ export class PostEdit implements CanComponentDeactivate {
     event.preventDefault();
     this.apiService.patch(this.id(), this.form().value()).subscribe((post) => {
       this.form().reset(post);
-      this.snackBar.open('Post updated', 'Close');
+      this.notification.success('UPDATE');
     });
   }
 
@@ -63,7 +63,7 @@ export class PostEdit implements CanComponentDeactivate {
 
   public onDelete() {
     this.apiService.delete(this.id()).subscribe(() => {
-      this.snackBar.open('Post deleted', 'Close');
+      this.notification.success('DELETE');
       this.router.navigate(['/', ROUTE_DEFINITION.APP.POSTS]);
     });
   }

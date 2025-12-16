@@ -1,4 +1,7 @@
 {
+  "action": {
+    "close": "Zavřít"
+  },
   "error": {
     "post-was-not-found": "Příspěvek nebyl nalezen",
     "unexpected-exception": "Neočekávaná chyba"
@@ -40,6 +43,17 @@
       "phone": "Telefon",
       "username": "Uživatelské jméno",
       "website": "Web"
+    }
+  },
+  "response": {
+    "create": {
+      "success": "Úspěšně vytvořeno"
+    },
+    "delete": {
+      "success": "Úspěšně smazáno"
+    },
+    "update": {
+      "success": "Úspěšně aktualizováno"
     }
   },
   "table": {
