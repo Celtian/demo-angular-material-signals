@@ -1,63 +1,115 @@
-<table
-  mat-table
-  [fixedLayout]="true"
-  multiTemplateDataRows
-  [dataSource]="resource.value() ?? []"
-  [trackBy]="trackByPostId"
-  matSort
-  matSortDisableClear
-  [matSortActive]="sortBy()"
-  [matSortDirection]="sortDirection()"
-  (matSortChange)="onSortChange($event)"
->
-  <colgroup>
-    <col width="120" />
-    <col width="auto" />
-    <col width="50" />
-    <col width="50" />
-  </colgroup>
+<mat-card>
+  <mat-card-content>
+    <table
+      mat-table
+      [fixedLayout]="true"
+      multiTemplateDataRows
+      [dataSource]="dataSource()"
+      [trackBy]="trackByPostId"
+      matSort
+      matSortDisableClear
+      [matSortActive]="sortBy()"
+      [matSortDirection]="sortDirection()"
+      (matSortChange)="onSortChange($event)"
+    >
+      <colgroup>
+        <col width="120" />
+        <col width="auto" />
+        <col width="50" />
+        <col width="50" />
+      </colgroup>
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'table.posts.id.title' | transloco }}</th>
-    <td mat-cell *matCellDef="let row">{{ '#' + row.id }}</td>
-  </ng-container>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'table.posts.id.title' | transloco }}</th>
+        <td mat-cell *matCellDef="let row; dataSource: dataSource()">{{ '#' + row.id }}</td>
+      </ng-container>
 
-  <ng-container matColumnDef="title">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'table.posts.title.title' | transloco }}</th>
-    <td mat-cell *matCellDef="let row" class="font-bold">{{ row.title }}</td>
-  </ng-container>
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+          {{ 'table.posts.title.title' | transloco }}
+        </th>
+        <td mat-cell *matCellDef="let row; dataSource: dataSource()" class="font-bold">{{ row.title }}</td>
+      </ng-container>
 
-  <ng-container matColumnDef="body">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>{{ 'table.posts.body.title' | transloco }}</th>
-    <td mat-cell *matCellDef="let row">{{ row.body }}</td>
-  </ng-container>
+      <ng-container matColumnDef="body">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+          {{ 'table.posts.body.title' | transloco }}
+        </th>
+        <td mat-cell *matCellDef="let row; dataSource: dataSource()">{{ row.body }}</td>
+      </ng-container>
 
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef>&nbsp;</th>
-    <td mat-cell *matCellDef="let row">todo</td>
-  </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>&nbsp;</th>
+        <td mat-cell *matCellDef="let row; dataSource: dataSource()">
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            [attr.aria-label]="'uni.aria-label.show-actions' | transloco"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <a mat-menu-item [routerLink]="['/', row.id]">
+              <mat-icon>info</mat-icon>
+              <span>{{ 'uni.detail' | transloco }}</span>
+            </a>
+            <a mat-menu-item [routerLink]="['/' + row.id + '/' + ROUTE_DEFINITION.POSTS.EDIT]">
+              <mat-icon>edit</mat-icon>
+              <span>{{ 'uni.edit' | transloco }}</span>
+            </a>
+            <!--
+        <button mat-menu-item [appPostDelete]="row.id" (deleted)="onDeleted(row.id)">
+          <mat-icon>delete</mat-icon>
+          <span>{{ 'uni.delete' | transloco }}</span>
+        </button>
+        -->
+          </mat-menu>
+        </td>
+      </ng-container>
 
-  <ng-container matColumnDef="expand">
-    <th mat-header-cell *matHeaderCellDef [attr.aria-label]="'uni.aria-label.row-actions' | transloco">&nbsp;</th>
-    <td mat-cell *matCellDef="let element">todo</td>
-  </ng-container>
+      <ng-container matColumnDef="expand">
+        <th mat-header-cell *matHeaderCellDef [attr.aria-label]="'uni.aria-label.row-actions' | transloco">&nbsp;</th>
+        <td mat-cell *matCellDef="let element; dataSource: dataSource()">
+          <button
+            mat-icon-button
+            [attr.aria-label]="'uni.aria-label.expand-row' | transloco"
+            (click)="onExpand($event, element)"
+          >
+            @if (expandedElement() === element) {
+            <mat-icon>keyboard_arrow_up</mat-icon>
+            } @else {
+            <mat-icon>keyboard_arrow_down</mat-icon>
+            }
+          </button>
+        </td>
+      </ng-container>
 
-  <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumnsExpanded.length">todo</td>
-  </ng-container>
+      <ng-container matColumnDef="expandedDetail">
+        <td
+          mat-cell
+          *matCellDef="let element; dataSource: dataSource()"
+          [attr.colspan]="displayedColumnsExpanded.length"
+        >
+          @if (expandedElement() === element) {
+          <div [class.my-2]="element === expandedElement()">todo</div>
+          }
+        </td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumnsExpanded"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsExpanded"></tr>
 
-  <tr mat-row *matRowDef="let row; columns: displayedColumnsExpanded"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsExpanded"></tr>
 
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="h-0"></tr>
-</table>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="h-0!"></tr>
+    </table>
 
-<mat-paginator
-  [pageSizeOptions]="pageSizeOptions"
-  [pageSize]="pageSize()"
-  [pageIndex]="pageIndex() - 1"
-  [length]="totalCount()"
-  (page)="onPageChange($event)"
-  [attr.aria-label]="'uni.aria-label.select-page-of-posts' | transloco"
-/>
+    <mat-paginator
+      [pageSizeOptions]="pageSizeOptions"
+      [pageSize]="pageSize()"
+      [pageIndex]="pageIndex() - 1"
+      [length]="totalCount()"
+      (page)="onPageChange($event)"
+      [attr.aria-label]="'uni.aria-label.select-page-of-posts' | transloco"
+    />
+  </mat-card-content>
+</mat-card>

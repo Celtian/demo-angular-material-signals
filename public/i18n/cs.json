@@ -1,5 +1,39 @@
 {
+  "error": {
+    "unexpected-exception": "Neočekávaná chyba"
+  },
   "footer": {
     "content": "Všechna práva vyhrazena © {{ endYear }}"
+  },
+  "mat-paginator": {
+    "first-page": "První stránka",
+    "items-per-page": "Položek na stránku",
+    "last-page": "Poslední stránka",
+    "next-page": "Další stránka",
+    "of": "z",
+    "previous-page": "Předchozí stránka"
+  },
+  "table": {
+    "posts": {
+      "body": {
+        "title": "Obsah"
+      },
+      "id": {
+        "title": "ID"
+      },
+      "title": {
+        "title": "Název"
+      }
+    }
+  },
+  "uni": {
+    "aria-label": {
+      "expand-row": "rozbalit řádek",
+      "row-actions": "akce",
+      "select-page-of-posts": "Vyberte stránku příspěvků",
+      "show-actions": "Zobrazit akce"
+    },
+    "detail": "Detail",
+    "edit": "Upravit"
   }
 }

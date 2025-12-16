@@ -1,5 +1,39 @@
 {
+  "error": {
+    "unexpected-exception": "Unexpected error"
+  },
   "footer": {
     "content": "All rights reserved © {{ endYear }}"
+  },
+  "mat-paginator": {
+    "first-page": "First page",
+    "items-per-page": "Items per page",
+    "last-page": "Last page",
+    "next-page": "Next page",
+    "of": "from",
+    "previous-page": "Previous page"
+  },
+  "table": {
+    "posts": {
+      "body": {
+        "title": "Body"
+      },
+      "id": {
+        "title": "ID"
+      },
+      "title": {
+        "title": "Title"
+      }
+    }
+  },
+  "uni": {
+    "aria-label": {
+      "expand-row": "expand row",
+      "row-actions": "row actions",
+      "select-page-of-posts": "Select page of posts",
+      "show-actions": "Show actions"
+    },
+    "detail": "Detail",
+    "edit": "Edit"
   }
 }
