@@ -1,14 +1,28 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
 import { filter, map, startWith } from 'rxjs';
+
+import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, MatToolbar, MatButton, TranslocoPipe],
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    MatToolbar,
+    MatButton,
+    TranslocoPipe,
+    BreadcrumbComponent,
+    BreadcrumbItemDirective,
+    MatIcon,
+    NgxFixedFooterDirective,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

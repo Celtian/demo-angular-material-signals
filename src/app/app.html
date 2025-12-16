@@ -8,11 +8,22 @@
   </mat-toolbar>
 </header>
 
-<main class="flex-1">
+<main class="flex-1 permanent-main">
+  <mat-toolbar>
+    <div class="container text-sm">
+      <xng-breadcrumb [separator]="separatorTemplate" [preserveQueryParams]="false" [preserveFragment]="false">
+        <ng-container *xngBreadcrumbItem="let breadcrumb">{{ breadcrumb }}</ng-container>
+      </xng-breadcrumb>
+      <ng-template #separatorTemplate>
+        <mat-icon>chevron_right</mat-icon>
+      </ng-template>
+    </div>
+  </mat-toolbar>
+
   <router-outlet />
 </main>
 
-<footer class="fixed bottom-0 w-full text-center">
+<footer ngxFixedFooter class="fixed bottom-0 w-full text-center">
   <mat-toolbar color="primary">
     <div class="container text-sm">{{ 'footer.content' | transloco: { endYear } }}</div>
   </mat-toolbar>

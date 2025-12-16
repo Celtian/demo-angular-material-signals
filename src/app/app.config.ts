@@ -3,6 +3,7 @@ import { provideRouter, withComponentInputBinding, withViewTransitions } from '@
 
 import { provideHttpClient } from '@angular/common/http';
 import { provideTransloco } from '@jsverse/transloco';
+import { provideFixedFooter } from 'ngx-fixed-footer';
 import { routes } from './app.routes';
 import { TranslocoHttpLoader } from './transloco-loader';
 
@@ -11,6 +12,10 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
     provideHttpClient(),
+    provideFixedFooter({
+      containerSelector: '.permanent-main',
+      cssAttribute: 'margin',
+    }),
     provideTransloco({
       config: {
         availableLangs: ['en', 'cs'],

@@ -4695,6 +4695,13 @@ negotiator@^1.0.0:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-1.0.0.tgz#b6c91bb47172d69f93cfd7c357bbb529019b5f6a"
   integrity sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==
 
+ngx-fixed-footer@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-fixed-footer/-/ngx-fixed-footer-4.0.2.tgz#c0497cc3cbcb485c60141cdd5b6aaea7941d701e"
+  integrity sha512-X6Qs3+2PoQrPqXZPBDpjsUVY9ZEuJS7I0h36fR5CC8V3u1naEM+CkaUnFw3SWbFi9o0U6RhkmKSJEy2lwQn4Bw==
+  dependencies:
+    tslib "^2.3.0"
+
 node-addon-api@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-6.1.0.tgz#ac8470034e58e67d0c6f1204a18ae6995d9c0d76"
@@ -6063,6 +6070,13 @@ xmlchars@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
+
+xng-breadcrumb@^14.1.0:
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/xng-breadcrumb/-/xng-breadcrumb-14.1.0.tgz#e07530f7d16d3be39a0d414a0ea64777cfce446c"
+  integrity sha512-bLzVpTk6bMlb3ey2Lgtky36YaQdJOG0CvBy9RHNxhbN/VydEo8akJ/foFKM4KN/RvEjKl9qT6nmYfBTMcqA3eg==
+  dependencies:
+    tslib "^2.3.0"
 
 y18n@^5.0.5:
   version "5.0.8"
