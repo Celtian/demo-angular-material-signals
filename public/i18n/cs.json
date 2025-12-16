@@ -13,6 +13,9 @@
     "of": "z",
     "previous-page": "Předchozí stránka"
   },
+  "not-found": {
+    "content": "Stránka nebyla nalezena"
+  },
   "table": {
     "posts": {
       "body": {
@@ -28,6 +31,7 @@
   },
   "uni": {
     "aria-label": {
+      "error-icon": "Ikona chyby",
       "expand-row": "rozbalit řádek",
       "row-actions": "akce",
       "select-page-of-posts": "Vyberte stránku příspěvků",

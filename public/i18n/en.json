@@ -13,6 +13,9 @@
     "of": "from",
     "previous-page": "Previous page"
   },
+  "not-found": {
+     "content": "Page was not found"
+  },
   "table": {
     "posts": {
       "body": {
@@ -28,6 +31,7 @@
   },
   "uni": {
     "aria-label": {
+       "error-icon": "Error icon",
       "expand-row": "expand row",
       "row-actions": "row actions",
       "select-page-of-posts": "Select page of posts",
