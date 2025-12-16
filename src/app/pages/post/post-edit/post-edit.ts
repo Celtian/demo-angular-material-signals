@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Observable } from 'rxjs';
+import { ClearSuffix } from '../../../components/clear-suffix/clear-suffix';
 import { API_URL } from '../../../constant/api.constant';
 import { ROUTE_DEFINITION } from '../../../constant/route-definition.constant';
 import { PostDto } from '../../../dto/post.dto';
@@ -20,7 +21,7 @@ const DEFAULT_POST: Pick<PostDto, 'title' | 'body'> = { title: '', body: '' };
 
 @Component({
   selector: 'app-post-edit',
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, Field, TranslocoPipe],
+  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, Field, TranslocoPipe, ClearSuffix],
   templateUrl: './post-edit.html',
   styleUrl: './post-edit.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -38,11 +39,11 @@ export class PostEdit implements CanComponentDeactivate {
   public readonly resource = httpResource<PostDto>(() => `${API_URL}/posts/${this.id()}`);
 
   constructor() {
-    effect(() => this.form().value.set(this.resource.value() ?? DEFAULT_POST));
+    effect(() => this.model.set(this.resource.value() ?? DEFAULT_POST));
   }
 
   public canDeactivate(): Observable<boolean> | boolean {
-    return !this.form().dirty || this.confirm.open('UNSAVED_WORK');
+    return !this.form().dirty() || this.confirm.open('UNSAVED_WORK');
   }
 
   public onSubmit(event: Event): void {

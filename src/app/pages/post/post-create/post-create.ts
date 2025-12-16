@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Observable } from 'rxjs';
+import { ClearSuffix } from '../../../components/clear-suffix/clear-suffix';
 import { PostInputDto } from '../../../dto/post.dto';
 import { CanComponentDeactivate } from '../../../guards/can-deactivate-guard.service';
 import { ApiService } from '../../../services/api.service';
@@ -16,7 +17,7 @@ const DEFAULT_POST: PostInputDto = { title: '', body: '', userId: 1 };
 
 @Component({
   selector: 'app-post-create',
-  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, Field, TranslocoPipe],
+  imports: [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, Field, TranslocoPipe, ClearSuffix],
   templateUrl: './post-create.html',
   styleUrl: './post-create.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,7 +32,7 @@ export class PostCreate implements CanComponentDeactivate {
   public readonly form = form(this.model, (path) => [required(path.title), required(path.body)]);
 
   public canDeactivate(): Observable<boolean> | boolean {
-    return !this.form().dirty || this.confirm.open('UNSAVED_WORK');
+    return !this.form().dirty() || this.confirm.open('UNSAVED_WORK');
   }
 
   public onSubmit(event: Event): void {

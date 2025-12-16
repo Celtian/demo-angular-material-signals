@@ -17,8 +17,7 @@ interface PostListInput {
   providedIn: 'root',
 })
 export class ApiService {
-  private http = inject(HttpClient);
-
+  private readonly http = inject(HttpClient);
   private readonly apiUrl = 'https://jsonplaceholder.typicode.com';
 
   public list(input: PostListInput): Observable<Pagination<PostDto>> {

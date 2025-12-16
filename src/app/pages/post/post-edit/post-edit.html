@@ -4,6 +4,9 @@
       <mat-form-field class="w-full">
         <mat-label>{{ 'form.post.title.label' | transloco }}</mat-label>
         <input matInput type="text" [field]="form.title" />
+        @if (form.title().value()) {
+          <app-clear-suffix matSuffix />
+        }
       </mat-form-field>
 
       <mat-form-field class="w-full">
