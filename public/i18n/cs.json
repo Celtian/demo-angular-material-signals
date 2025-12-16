@@ -2,6 +2,20 @@
   "action": {
     "close": "Zavřít"
   },
+  "custom-confirm-dialog": {
+    "default": {
+      "content": "Opravdu chcete potvrdit operaci?",
+      "title": "Potvrzení operace"
+    },
+    "delete-post": {
+      "content": "Opravdu chcete smazat příspěvek?",
+      "title": "Mazání příspěvku"
+    },
+    "unsaved-work": {
+      "content": "Opravdu chcete opustit tuto stránku?",
+      "title": "Neuložená práce"
+    }
+  },
   "error": {
     "post-was-not-found": "Příspěvek nebyl nalezen",
     "unexpected-exception": "Neočekávaná chyba"

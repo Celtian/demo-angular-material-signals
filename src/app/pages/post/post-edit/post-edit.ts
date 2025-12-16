@@ -8,12 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Observable } from 'rxjs';
-import { ConfirmDialogService } from '../../../components/confirm-dialog/confirm-dialog.service';
 import { API_URL } from '../../../constant/api.constant';
 import { ROUTE_DEFINITION } from '../../../constant/route-definition.constant';
 import { PostDto } from '../../../dto/post.dto';
 import { CanComponentDeactivate } from '../../../guards/can-deactivate-guard.service';
 import { ApiService } from '../../../services/api.service';
+import { CustomConfirmDialogService } from '../../../services/custom-confirm-dialog.service';
 import { NotificationService } from '../../../services/notification.service';
 
 const DEFAULT_POST: Pick<PostDto, 'title' | 'body'> = { title: '', body: '' };
@@ -30,7 +30,7 @@ export class PostEdit implements CanComponentDeactivate {
   private readonly notification = inject(NotificationService);
   private readonly apiService = inject(ApiService);
   private readonly router = inject(Router);
-  private readonly confirm = inject(ConfirmDialogService);
+  private readonly confirm = inject(CustomConfirmDialogService);
 
   public readonly id = input.required<number>();
   public readonly model = signal(DEFAULT_POST);
@@ -42,10 +42,7 @@ export class PostEdit implements CanComponentDeactivate {
   }
 
   public canDeactivate(): Observable<boolean> | boolean {
-    return (
-      !this.form().dirty ||
-      this.confirm.open('Discard changes?', 'You have unsaved changes. Do you really want to leave?')
-    );
+    return !this.form().dirty || this.confirm.open('UNSAVED_WORK');
   }
 
   public onSubmit(event: Event): void {

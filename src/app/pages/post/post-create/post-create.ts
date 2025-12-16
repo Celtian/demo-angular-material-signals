@@ -6,10 +6,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Observable } from 'rxjs';
-import { ConfirmDialogService } from '../../../components/confirm-dialog/confirm-dialog.service';
 import { PostInputDto } from '../../../dto/post.dto';
 import { CanComponentDeactivate } from '../../../guards/can-deactivate-guard.service';
 import { ApiService } from '../../../services/api.service';
+import { CustomConfirmDialogService } from '../../../services/custom-confirm-dialog.service';
 import { NotificationService } from '../../../services/notification.service';
 
 const DEFAULT_POST: PostInputDto = { title: '', body: '', userId: 1 };
@@ -25,16 +25,13 @@ const DEFAULT_POST: PostInputDto = { title: '', body: '', userId: 1 };
 export class PostCreate implements CanComponentDeactivate {
   private readonly notification = inject(NotificationService);
   private readonly apiService = inject(ApiService);
-  private readonly confirm = inject(ConfirmDialogService);
+  private readonly confirm = inject(CustomConfirmDialogService);
 
   public readonly model = signal(DEFAULT_POST);
   public readonly form = form(this.model, (path) => [required(path.title), required(path.body)]);
 
   public canDeactivate(): Observable<boolean> | boolean {
-    return (
-      !this.form().dirty ||
-      this.confirm.open('Discard changes?', 'You have unsaved changes. Do you really want to leave?')
-    );
+    return !this.form().dirty || this.confirm.open('UNSAVED_WORK');
   }
 
   public onSubmit(event: Event): void {
