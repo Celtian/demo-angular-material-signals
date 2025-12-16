@@ -91,4 +91,8 @@ export class PostList {
       replaceUrl: true,
     });
   }
+
+  public onDelete() {
+    throw new Error('Method not implemented.');
+  }
 }

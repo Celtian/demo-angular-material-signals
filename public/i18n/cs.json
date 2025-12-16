@@ -70,7 +70,9 @@
     "delete": "Smazat",
     "detail": "Detail",
     "edit": "Upravit",
+    "no": "Ne",
     "reset": "Resetovat",
-    "submit": "Potvrdit"
+    "submit": "Potvrdit",
+    "yes": "Ano"
   }
 }

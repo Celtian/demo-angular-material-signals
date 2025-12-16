@@ -57,12 +57,10 @@
               <mat-icon>edit</mat-icon>
               <span>{{ 'uni.edit' | transloco }}</span>
             </a>
-            <!--
-        <button mat-menu-item [appPostDelete]="row.id" (deleted)="onDeleted(row.id)">
-          <mat-icon>delete</mat-icon>
-          <span>{{ 'uni.delete' | transloco }}</span>
-        </button>
-        -->
+            <button mat-menu-item (click)="onDelete()">
+              <mat-icon>delete</mat-icon>
+              <span>{{ 'uni.delete' | transloco }}</span>
+            </button>
           </mat-menu>
         </td>
       </ng-container>

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { ROUTE_DEFINITION } from './constant/route-definition.constant';
+import { CanDeactivateGuardService } from './guards/can-deactivate-guard.service';
 
 export const routes: Routes = [
   {
@@ -29,6 +30,7 @@ export const routes: Routes = [
     data: {
       breadcrumb: 'Edit',
     },
+    canDeactivate: [CanDeactivateGuardService],
   },
   {
     path: '**',
