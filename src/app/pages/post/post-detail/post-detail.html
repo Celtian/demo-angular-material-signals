@@ -1,5 +1,50 @@
 <mat-card>
-  <mat-card-content>
-    <p>post-detail works!</p>
-  </mat-card-content>
+  @if (resource.isLoading()) {
+    <mat-card-content>
+      <p>post-detail works!</p>
+    </mat-card-content>
+  } @else {
+    @if (resource.error(); as error) {
+      <mat-card-content class="flex flex-col gap-2 text-center">
+        <mat-icon aria-hidden="false" [attr.aria-label]="'uni.aria-label.error-icon' | transloco" fontIcon="error" />
+        <div>{{ error }}</div>
+      </mat-card-content>
+    } @else {
+      @if (resource.value(); as post) {
+        <mat-card-header>
+          <mat-card-subtitle>{{ '#' + post.id }}</mat-card-subtitle>
+          <mat-card-title>{{ post.title | uppercase }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="py-4!">
+          <p class="mb-2 font-semibold text-md">
+            {{ 'post-detail.about-post' | transloco }}
+          </p>
+          <p class="mb-4">
+            {{ post.body }}
+          </p>
+          <p class="mb-2 font-semibold text-md">
+            {{ 'post-detail.about-author' | transloco }}
+          </p>
+          <app-user-info [user]="post.user" />
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-button (click)="onDelete()">
+            {{ 'uni.delete' | transloco }}
+          </button>
+          <a mat-button color="primary" [routerLink]="['/' + id() + '/' + ROUTE_DEFINITION.POSTS.EDIT]">{{
+            'uni.edit' | transloco
+          }}</a>
+        </mat-card-actions>
+      } @else {
+        <mat-card-content class="flex flex-col gap-2 text-center">
+          <mat-icon
+            aria-hidden="false"
+            [attr.aria-label]="'uni.aria-label.warning-icon' | transloco"
+            fontIcon="warning"
+          />
+          <div>{{ 'error.post-was-not-found' | transloco }}</div>
+        </mat-card-content>
+      }
+    }
+  }
 </mat-card>

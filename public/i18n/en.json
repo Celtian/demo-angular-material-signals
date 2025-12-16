@@ -1,5 +1,6 @@
 {
   "error": {
+    "post-was-not-found": "Post was not found",
     "unexpected-exception": "Unexpected error"
   },
   "footer": {
@@ -27,6 +28,20 @@
   "not-found": {
     "content": "Page was not found"
   },
+  "post-detail": {
+    "about-author": "About author",
+    "about-post": "Post content",
+    "user": {
+      "address": "Address",
+      "company": "Company",
+      "email": "Email",
+      "id": "Id",
+      "name": "Name",
+      "phone": "Phone",
+      "username": "Username",
+      "website": "Website"
+    }
+  },
   "table": {
     "posts": {
       "body": {
@@ -46,8 +61,10 @@
       "expand-row": "expand row",
       "row-actions": "row actions",
       "select-page-of-posts": "Select page of posts",
-      "show-actions": "Show actions"
+      "show-actions": "Show actions",
+      "warning-icon": "Warning icon"
     },
+    "delete": "Delete",
     "detail": "Detail",
     "edit": "Edit",
     "reset": "Reset",

@@ -1,0 +1,56 @@
+<table class="w-full">
+  <colgroup>
+    <col width="150" />
+    <col />
+  </colgroup>
+  @if (user(); as u) {
+    <tbody>
+      <tr>
+        <td class="font-bold">{{ 'post-detail.user.id' | transloco }}</td>
+        <td>{{ '#' + u.id }}</td>
+      </tr>
+      <tr>
+        <td class="font-bold">{{ 'post-detail.user.name' | transloco }}</td>
+        <td>{{ u.name }}</td>
+      </tr>
+      <tr>
+        <td class="font-bold">{{ 'post-detail.user.username' | transloco }}</td>
+        <td>{{ u.username }}</td>
+      </tr>
+      <tr>
+        <td class="font-bold">{{ 'post-detail.user.email' | transloco }}</td>
+        <td>{{ u.email }}</td>
+      </tr>
+      <tr>
+        <td class="font-bold">{{ 'post-detail.user.phone' | transloco }}</td>
+        <td>{{ u.phone }}</td>
+      </tr>
+      <tr>
+        <td class="font-bold">{{ 'post-detail.user.website' | transloco }}</td>
+        <td>{{ u.website }}</td>
+      </tr>
+      @if (u.address) {
+        <tr class="align-baseline">
+          <td class="font-bold">{{ 'post-detail.user.address' | transloco }}</td>
+          <td>
+            <div>{{ u.address.street }}</div>
+            <div>{{ u.address.suite }}</div>
+            <div>{{ u.address.city }}</div>
+            <div>{{ u.address.zipcode }}</div>
+            <div>{{ u.address.geo.lat }}, {{ u.address.geo.lng }}</div>
+          </td>
+        </tr>
+      }
+      @if (u.company) {
+        <tr class="align-baseline">
+          <td class="font-bold">{{ 'post-detail.user.company' | transloco }}</td>
+          <td>
+            <div>{{ u.company.name }}</div>
+            <div>{{ u.company.catchPhrase }}</div>
+            <div>{{ u.company.bs }}</div>
+          </td>
+        </tr>
+      }
+    </tbody>
+  }
+</table>

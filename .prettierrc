@@ -5,5 +5,13 @@
   "tabWidth": 2,
   "semi": true,
   "arrowParens": "always",
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
 }

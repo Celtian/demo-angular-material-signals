@@ -76,9 +76,9 @@
             (click)="onExpand($event, element)"
           >
             @if (expandedElement() === element) {
-            <mat-icon>keyboard_arrow_up</mat-icon>
+              <mat-icon>keyboard_arrow_up</mat-icon>
             } @else {
-            <mat-icon>keyboard_arrow_down</mat-icon>
+              <mat-icon>keyboard_arrow_down</mat-icon>
             }
           </button>
         </td>
@@ -91,7 +91,7 @@
           [attr.colspan]="displayedColumnsExpanded.length"
         >
           @if (expandedElement() === element) {
-          <div [class.my-2]="element === expandedElement()">todo</div>
+            <div [class.my-2]="element === expandedElement()">todo</div>
           }
         </td>
       </ng-container>

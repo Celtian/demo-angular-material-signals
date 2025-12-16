@@ -1,5 +1,6 @@
 {
   "error": {
+    "post-was-not-found": "Příspěvek nebyl nalezen",
     "unexpected-exception": "Neočekávaná chyba"
   },
   "footer": {
@@ -27,6 +28,20 @@
   "not-found": {
     "content": "Stránka nebyla nalezena"
   },
+  "post-detail": {
+    "about-author": "O autorovi",
+    "about-post": "Obsah příspěvku",
+    "user": {
+      "address": "Adresa",
+      "company": "Společnost",
+      "email": "Email",
+      "id": "ID",
+      "name": "Jméno",
+      "phone": "Telefon",
+      "username": "Uživatelské jméno",
+      "website": "Web"
+    }
+  },
   "table": {
     "posts": {
       "body": {
@@ -46,8 +61,10 @@
       "expand-row": "rozbalit řádek",
       "row-actions": "akce",
       "select-page-of-posts": "Vyberte stránku příspěvků",
-      "show-actions": "Zobrazit akce"
+      "show-actions": "Zobrazit akce",
+      "warning-icon": "Ikona varování"
     },
+    "delete": "Smazat",
     "detail": "Detail",
     "edit": "Upravit",
     "reset": "Resetovat",

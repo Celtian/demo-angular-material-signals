@@ -9,6 +9,7 @@ import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { Params, Router, RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { API_URL } from '../../../constant/api.constant';
 import { ROUTE_DEFINITION } from '../../../constant/route-definition.constant';
 import { TypeSafeMatCellDef } from '../../../directives/type-safe-mat-cell-def.directive';
 import { PostDto } from '../../../dto/post.dto';
@@ -30,7 +31,7 @@ import { PostDto } from '../../../dto/post.dto';
   templateUrl: './post-list.html',
   styleUrl: './post-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: { class: 'block container m-auto py-4 space-y-2' },
+  host: { class: 'block container m-auto p-4 space-y-2' },
 })
 export class PostList {
   public readonly ROUTE_DEFINITION = ROUTE_DEFINITION;
@@ -51,7 +52,7 @@ export class PostList {
   public readonly totalCount = signal(0);
 
   public readonly resource = httpResource<PostDto[]>(
-    () => `https://jsonplaceholder.typicode.com/posts?_limit=${this.pageSize()}&_page=${this.pageIndex()}`,
+    () => `${API_URL}/posts?_limit=${this.pageSize()}&_page=${this.pageIndex()}`,
   );
 
   public readonly dataSource = computed(() => this.resource.value() ?? []);
