@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { TranslocoPipe } from '@jsverse/transloco';
 
 export interface ConfirmDialogData {
@@ -10,7 +11,7 @@ export interface ConfirmDialogData {
 
 @Component({
   selector: 'app-confirm-dialog',
-  imports: [MatButtonModule, MatDialogModule, TranslocoPipe],
+  imports: [MatButtonModule, MatDialogModule, MatIconModule, TranslocoPipe],
   templateUrl: './confirm-dialog.html',
   styleUrl: './confirm-dialog.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

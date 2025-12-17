@@ -6,7 +6,7 @@ import { Pagination } from '../dto/pagination.dto';
 import { ExpandedPostDto, PostDto, PostInputDto } from '../dto/post.dto';
 import { UserDto } from '../dto/user.dto';
 
-interface PostListInput {
+export interface PostListInput {
   page: number;
   limit: number;
   sort: keyof PostDto;

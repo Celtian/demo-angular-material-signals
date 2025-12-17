@@ -1,5 +1,6 @@
-import { httpResource } from '@angular/common/http';
+import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { rxResource } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,11 +12,10 @@ import { Params, Router, RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { filter, switchMap } from 'rxjs';
 import { PostListDetail } from '../../../components/post-list-detail/post-list-detail';
-import { API_URL } from '../../../constant/api.constant';
 import { ROUTE_DEFINITION } from '../../../constant/route-definition.constant';
 import { TypeSafeMatCellDef } from '../../../directives/type-safe-mat-cell-def.directive';
 import { PostDto } from '../../../dto/post.dto';
-import { ApiService } from '../../../services/api.service';
+import { ApiService, PostListInput } from '../../../services/api.service';
 import { CustomConfirmDialogService } from '../../../services/custom-confirm-dialog.service';
 import { NotificationService } from '../../../services/notification.service';
 
@@ -47,24 +47,37 @@ export class PostList {
   private readonly router = inject(Router);
   private readonly confirm = inject(CustomConfirmDialogService);
 
-  public readonly pageSize = input(5);
-  public readonly pageIndex = input(1);
+  public readonly pageSize = input(5, { transform: (value) => coerceNumberProperty(value, 5) });
+  public readonly pageIndex = input(1, { transform: (value) => coerceNumberProperty(value, 1) });
 
-  public readonly sortBy = signal<keyof PostDto>('id');
-  public readonly sortDirection = signal<'asc' | 'desc'>('asc');
+  public readonly sortBy = input('id', {
+    transform: (value: string): keyof PostDto => (['id', 'title'].includes(value) ? (value as keyof PostDto) : 'id'),
+  });
+  public readonly sortDirection = input('asc', {
+    transform: (value: string): 'asc' | 'desc' => (['asc', 'desc'].includes(value) ? (value as 'asc' | 'desc') : 'asc'),
+  });
 
   public readonly expandedElement = signal<PostDto | null>(null);
 
   public readonly displayedColumns: string[] = ['id', 'title', 'actions'];
   public readonly displayedColumnsExpanded = [...this.displayedColumns, 'expand'];
   public readonly pageSizeOptions = [5, 10, 25, 100];
-  public readonly totalCount = signal(0);
 
-  public readonly resource = httpResource<PostDto[]>(
-    () => `${API_URL}/posts?_limit=${this.pageSize()}&_page=${this.pageIndex()}`,
-  );
+  public readonly resource = rxResource({
+    params: (): PostListInput => {
+      return {
+        limit: this.pageSize(),
+        page: this.pageIndex(),
+        sort: this.sortBy(),
+        order: this.sortDirection(),
+        query: '',
+      };
+    },
+    stream: ({ params }) => this.apiService.list(params),
+  });
 
-  public readonly dataSource = computed(() => this.resource.value() ?? []);
+  public readonly dataSource = computed(() => this.resource.value()?.items ?? []);
+  public readonly totalCount = computed(() => this.resource.value()?.totalCount ?? 0);
 
   public trackByPostId(_: number, target: PostDto): string | number {
     return target.id;
@@ -76,11 +89,14 @@ export class PostList {
   }
 
   public onSortChange(event: Sort): void {
-    console.log(event);
+    this.setFiltersToRoute({
+      sortBy: event.active,
+      sortDirection: event.direction,
+      pageIndex: null,
+    });
   }
 
   public onPageChange(event: PageEvent): void {
-    console.log(event);
     let pageIndex = null;
     if (event.pageSize === this.pageSize()) {
       pageIndex = event.pageIndex + 1 > 1 ? event.pageIndex + 1 : null;
