@@ -3,7 +3,7 @@
     <nav class="container m-auto flex items-center justify-between gap-2">
       <a mat-button [routerLink]="['/']">Signals Demo</a>
 
-      <button mat-button (click)="toggleLanguage()" class="uppercase">{{ lang( ) }}</button>
+      <button mat-button (click)="toggleLanguage()" class="uppercase">{{ lang() }}</button>
     </nav>
   </mat-toolbar>
 </header>
@@ -25,6 +25,6 @@
 
 <footer ngxFixedFooter class="fixed bottom-0 w-full text-center">
   <mat-toolbar color="primary">
-    <div class="container text-sm">{{ 'footer.content' | transloco: { endYear } }}</div>
+    <div class="container m-auto text-sm">{{ 'footer.content' | transloco: { endYear } }}</div>
   </mat-toolbar>
 </footer>

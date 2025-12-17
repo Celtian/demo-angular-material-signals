@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, signal } f
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router, RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { debounceTime, filter, finalize, switchMap, tap } from 'rxjs';
@@ -22,6 +23,7 @@ import { NotificationService } from '../../../services/notification.service';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
     TranslocoPipe,
     UpperCasePipe,
     RouterLink,

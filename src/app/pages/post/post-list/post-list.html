@@ -1,6 +1,19 @@
 <mat-card>
   <mat-card-content>
-    <div class="flex items-end justify-end gap-2">
+    <div class="flex items-center gap-2 flex-wrap">
+      <mat-form-field class="flex-1 min-w-64!" [subscriptSizing]="'dynamic'">
+        <mat-label>{{ 'input.search.label' | transloco }}</mat-label>
+        <input
+          matInput
+          [ngModel]="query()"
+          (ngModelChange)="onQueryChange($event)"
+          [placeholder]="'input.search.placeholder' | transloco"
+        />
+        @if (query()) {
+          <app-clear-suffix matSuffix />
+        }
+      </mat-form-field>
+
       <button mat-button (click)="onClear()">
         <mat-icon>clear</mat-icon>
         {{ 'uni.clear-filters' | transloco }}

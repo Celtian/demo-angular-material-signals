@@ -2,8 +2,10 @@ import { ApplicationConfig, ErrorHandler, isDevMode, provideBrowserGlobalErrorLi
 import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 
 import { provideHttpClient } from '@angular/common/http';
+import { MAT_CARD_CONFIG, MatCardConfig } from '@angular/material/card';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { MatPaginatorIntl } from '@angular/material/paginator';
-import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { provideTransloco } from '@jsverse/transloco';
 import { provideFixedFooter } from 'ngx-fixed-footer';
 import { routes } from './app.routes';
@@ -30,11 +32,23 @@ export const appConfig: ApplicationConfig = {
       },
       loader: TranslocoHttpLoader,
     }),
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { verticalPosition: 'top', horizontalPosition: 'right' } },
+
     { provide: ErrorHandler, useClass: CustomErrorHandlerService },
     {
       provide: MatPaginatorIntl,
       useClass: MatPaginationIntlService,
+    },
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: 'outline', floatLabel: 'always' } as MatFormFieldDefaultOptions,
+    },
+    {
+      provide: MAT_CARD_CONFIG,
+      useValue: { appearance: 'outlined' } as MatCardConfig,
+    },
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: { horizontalPosition: 'end', verticalPosition: 'top', duration: 2000 } as MatSnackBarConfig,
     },
   ],
 };

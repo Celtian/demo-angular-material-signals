@@ -20,18 +20,17 @@ export const routes: Routes = [
   },
   {
     path: ':id',
-    loadComponent: () => import('./pages/post/post-detail/post-detail').then((m) => m.PostDetail),
-    data: {
-      breadcrumb: 'Detail',
-    },
-  },
-  {
-    path: `:id/${ROUTE_DEFINITION.POSTS.EDIT}`,
-    loadComponent: () => import('./pages/post/post-edit/post-edit').then((m) => m.PostEdit),
-    data: {
-      breadcrumb: 'Edit',
-    },
-    canDeactivate: [CanDeactivateGuardService],
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./pages/post/post-detail/post-detail').then((m) => m.PostDetail),
+      },
+      {
+        path: ROUTE_DEFINITION.POSTS.EDIT,
+        loadComponent: () => import('./pages/post/post-edit/post-edit').then((m) => m.PostEdit),
+        canDeactivate: [CanDeactivateGuardService],
+      },
+    ],
   },
   {
     path: '**',

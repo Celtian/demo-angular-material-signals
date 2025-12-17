@@ -1,11 +1,11 @@
 <mat-card>
   @if (resource.isLoading()) {
-    <mat-card-content>
-      <p>post-detail works!</p>
+    <mat-card-content class="flex! items-center justify-center">
+      <mat-spinner />
     </mat-card-content>
   } @else {
     @if (resource.error(); as error) {
-      <mat-card-content class="flex flex-col gap-2 text-center">
+      <mat-card-content class="flex! flex-col gap-2 text-center">
         <mat-icon aria-hidden="false" [attr.aria-label]="'uni.aria-label.error-icon' | transloco" fontIcon="error" />
         <div>{{ error }}</div>
       </mat-card-content>

@@ -1,13 +1,17 @@
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Params, Router, RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { filter, switchMap } from 'rxjs';
@@ -29,6 +33,10 @@ import { NotificationService } from '../../../services/notification.service';
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatTooltipModule,
+    MatInputModule,
+    FormsModule,
     RouterLink,
     TranslocoPipe,
     TypeSafeMatCellDef,
@@ -49,6 +57,7 @@ export class PostList {
 
   public readonly pageSize = input(5, { transform: (value) => coerceNumberProperty(value, 5) });
   public readonly pageIndex = input(1, { transform: (value) => coerceNumberProperty(value, 1) });
+  public readonly query = input('', { transform: (value: string) => (value ? decodeURIComponent(value) : '') });
 
   public readonly sortBy = input('id', {
     transform: (value: string): keyof PostDto => (['id', 'title'].includes(value) ? (value as keyof PostDto) : 'id'),
@@ -70,7 +79,7 @@ export class PostList {
         page: this.pageIndex(),
         sort: this.sortBy(),
         order: this.sortDirection(),
-        query: '',
+        query: this.query(),
       };
     },
     stream: ({ params }) => this.apiService.list(params),
@@ -90,8 +99,8 @@ export class PostList {
 
   public onSortChange(event: Sort): void {
     this.setFiltersToRoute({
-      sortBy: event.active,
-      sortDirection: event.direction,
+      sortBy: event.active === 'id' ? null : event.active,
+      sortDirection: event.direction === 'desc' ? event.direction : null,
       pageIndex: null,
     });
   }
@@ -103,7 +112,7 @@ export class PostList {
     }
     this.setFiltersToRoute({
       pageIndex,
-      pageSize: event.pageSize,
+      pageSize: event.pageSize === 5 ? null : event.pageSize,
     });
   }
 
@@ -132,6 +141,13 @@ export class PostList {
       pageSize: null,
       sortBy: null,
       sortDirection: null,
+    });
+  }
+
+  public onQueryChange(query: string): void {
+    this.setFiltersToRoute({
+      query: query ? encodeURIComponent(query) : null,
+      pageIndex: null,
     });
   }
 }

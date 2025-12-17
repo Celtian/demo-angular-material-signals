@@ -34,6 +34,12 @@
       }
     }
   },
+  "input": {
+    "search": {
+      "label": "Vyhledávání",
+      "placeholder": "Začněte zde psát…"
+    }
+  },
   "mat-paginator": {
     "first-page": "První stránka",
     "items-per-page": "Položek na stránku",
