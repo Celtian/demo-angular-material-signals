@@ -92,6 +92,11 @@
       }
     }
   },
+  "theme": {
+    "dark": "Tmavý",
+    "light": "Světlý",
+    "system": "Systémový"
+  },
   "uni": {
     "aria-label": {
       "error-icon": "Ikona chyby",
@@ -103,6 +108,7 @@
     },
     "clear": "Vymazat",
     "clear-filters": "Vymazat filtry",
+    "close": "Zavřít",
     "create": "Vytvořit",
     "delete": "Smazat",
     "detail": "Detail",
@@ -111,5 +117,9 @@
     "reset": "Resetovat",
     "save": "Uložit",
     "yes": "Ano"
+  },
+  "update-app": {
+    "new-version-available": "Nová verze je k dispozici. Chcete stránku znovu načíst?",
+    "reload-website": "Znovu načíst stránku"
   }
 }

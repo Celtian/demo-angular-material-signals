@@ -92,6 +92,11 @@
       }
     }
   },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
   "uni": {
     "aria-label": {
       "error-icon": "Error icon",
@@ -103,6 +108,7 @@
     },
     "clear": "Clear",
     "clear-filters": "Clear filters",
+    "close": "Close",
     "create": "Create",
     "delete": "Delete",
     "detail": "Detail",
@@ -111,5 +117,9 @@
     "reset": "Reset",
     "save": "Save",
     "yes": "Yes"
+  },
+  "update-app": {
+    "new-version-available": "New version is available. Do you want to reload website?",
+    "reload-website": "Reload website"
   }
 }

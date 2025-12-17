@@ -8,7 +8,10 @@ import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
 import { filter, map, startWith } from 'rxjs';
 
+import { NgxUpdateAppDirective } from 'ngx-update-app';
 import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
+import { ThemeComponent } from './components/theme/theme.component';
+import { ThemeDirective } from './components/theme/theme.directive';
 
 @Component({
   selector: 'app-root',
@@ -22,11 +25,13 @@ import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
     BreadcrumbItemDirective,
     MatIconModule,
     NgxFixedFooterDirective,
+    ThemeComponent,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { class: 'flex flex-col min-h-screen' },
+  hostDirectives: [NgxUpdateAppDirective, ThemeDirective],
 })
 export class App {
   public readonly endYear = new Date().getFullYear(); // todo replace

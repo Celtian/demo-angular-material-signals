@@ -1,4 +1,4 @@
-import { ApplicationConfig, ErrorHandler, isDevMode, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, ErrorHandler, inject, isDevMode, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 
 import { provideHttpClient } from '@angular/common/http';
@@ -6,13 +6,15 @@ import { MAT_CARD_CONFIG, MatCardConfig } from '@angular/material/card';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { provideServiceWorker } from '@angular/service-worker';
 import { provideTransloco } from '@jsverse/transloco';
 import { provideFixedFooter } from 'ngx-fixed-footer';
+import { provideUpdateApp } from 'ngx-update-app';
 import { routes } from './app.routes';
+import { UpdateAppService } from './components/update-app/update-app.service';
 import { CustomErrorHandlerService } from './services/custom-error-handler.service';
 import { MatPaginationIntlService } from './services/mat-paginator-intl.service';
 import { TranslocoHttpLoader } from './transloco-loader';
-import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -33,7 +35,18 @@ export const appConfig: ApplicationConfig = {
       },
       loader: TranslocoHttpLoader,
     }),
-
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
+    provideUpdateApp({
+      interval: 1000 * 60,
+      dryRun: false,
+      onUpdateFactory: () => {
+        const dialog = inject(UpdateAppService);
+        return () => dialog.openModal();
+      },
+    }),
     { provide: ErrorHandler, useClass: CustomErrorHandlerService },
     {
       provide: MatPaginatorIntl,
@@ -51,9 +64,5 @@ export const appConfig: ApplicationConfig = {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: { horizontalPosition: 'end', verticalPosition: 'top', duration: 2000 } as MatSnackBarConfig,
     },
-    provideServiceWorker('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      registrationStrategy: 'registerWhenStable:30000',
-    }),
   ],
 };

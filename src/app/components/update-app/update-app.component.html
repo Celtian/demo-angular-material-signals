@@ -1,0 +1,7 @@
+<mat-card>
+  <mat-card-content>{{ 'update-app.new-version-available' | transloco }} </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="dialogRef.close(false)">{{ 'uni.close' | transloco }}</button>
+    <button mat-button (click)="dialogRef.close(true)">{{ 'update-app.reload-website' | transloco }}</button>
+  </mat-card-actions>
+</mat-card>

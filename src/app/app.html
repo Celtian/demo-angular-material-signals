@@ -3,7 +3,10 @@
     <nav class="container m-auto flex items-center justify-between gap-2">
       <a mat-button [routerLink]="['/']">Signals Demo</a>
 
-      <button mat-button (click)="toggleLanguage()" class="uppercase">{{ lang() }}</button>
+      <div class="flex gap-2">
+        <app-theme />
+        <button mat-button (click)="toggleLanguage()" class="uppercase">{{ lang() }}</button>
+      </div>
     </nav>
   </mat-toolbar>
 </header>

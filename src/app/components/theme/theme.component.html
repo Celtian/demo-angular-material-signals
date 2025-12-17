@@ -1,0 +1,27 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Change theme">
+  @switch (themeService.themeType()) {
+    @case ('dark') {
+      <mat-icon>dark_mode</mat-icon>
+    }
+    @case ('light') {
+      <mat-icon>light_mode</mat-icon>
+    }
+    @case ('system') {
+      <mat-icon>computer</mat-icon>
+    }
+  }
+</button>
+<mat-menu #menu="matMenu" xPosition="before" yPosition="below">
+  <button mat-menu-item (click)="themeService.setThemeType('light')">
+    <mat-icon>light_mode</mat-icon>
+    {{ 'theme.light' | transloco }}
+  </button>
+  <button mat-menu-item (click)="themeService.setThemeType('dark')">
+    <mat-icon>dark_mode</mat-icon>
+    {{ 'theme.dark' | transloco }}
+  </button>
+  <button mat-menu-item (click)="themeService.setThemeType('system')">
+    <mat-icon>computer</mat-icon>
+    {{ 'theme.system' | transloco }}
+  </button>
+</mat-menu>
