@@ -8,8 +8,10 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideTransloco } from '@jsverse/transloco';
+import { provideAppVersion } from 'ngx-app-version';
 import { provideFixedFooter } from 'ngx-fixed-footer';
 import { provideUpdateApp } from 'ngx-update-app';
+import { VERSION } from '../version';
 import { routes } from './app.routes';
 import { UpdateAppService } from './components/update-app/update-app.service';
 import { CustomErrorHandlerService } from './services/custom-error-handler.service';
@@ -35,6 +37,7 @@ export const appConfig: ApplicationConfig = {
       },
       loader: TranslocoHttpLoader,
     }),
+    provideAppVersion({ version: VERSION.version }),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000',

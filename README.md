@@ -1,59 +1,46 @@
-# DemoAngularMaterialSignals
+# Demo Angular Material Signals
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+## 🗎 Description
 
-## Development server
+- Standards: HTML5, CSS3
+- Components: Angular 21, Angular Material, Tailwind CSS
+- Software: Visual Studio Code
+- See [Humans.txt](https://celtian.github.io/demo-angular-material-signals/humans.txt)
+- Api taken from [here](https://jsonplaceholder.typicode.com)
+- Deployed [here](https://celtian.github.io/demo-angular-material-signals/)
 
-To start a local development server, run:
+## 🛠️ Instalation
 
-```bash
-ng serve
+Definitelly works with Node `v24.0.2` & yarn `1.22.21`
+
+```
+yarn install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+_Consider to install vscode with recommended extensions in `.vscode/extensions.json` before you start_
 
-## Code scaffolding
+_Consider to use `WSL` if you are developing on `Windows` to prevent unsupported commands in `package.json`._
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🚀 Development server
 
-```bash
-ng generate component component-name
+```
+yarn start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📦 Build
 
-```bash
-ng generate --help
+```
+yarn build
 ```
 
-## Building
+## 🚀 Deploy
 
-To build the project run:
+only via Github Pipelines
 
-```bash
-ng build
-```
+## 🪪 License
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Copyright &copy; 2025 [Dominik Hladik](https://github.com/Celtian)
 
-## Running unit tests
+All contents are licensed under the [MIT license].
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[mit license]: LICENSE
