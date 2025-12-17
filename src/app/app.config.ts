@@ -1,11 +1,10 @@
-import { ApplicationConfig, ErrorHandler, inject, isDevMode, provideBrowserGlobalErrorListeners } from '@angular/core';
-import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
-
 import { provideHttpClient } from '@angular/common/http';
+import { ApplicationConfig, ErrorHandler, inject, isDevMode, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { MAT_CARD_CONFIG, MatCardConfig } from '@angular/material/card';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { provideRouter, TitleStrategy, withComponentInputBinding, withViewTransitions } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideTransloco } from '@jsverse/transloco';
 import { provideAppVersion } from 'ngx-app-version';
@@ -15,8 +14,10 @@ import { VERSION } from '../version';
 import { routes } from './app.routes';
 import { UpdateAppService } from './components/update-app/update-app.service';
 import { CustomErrorHandlerService } from './services/custom-error-handler.service';
+import { CustomTitleStrategyService } from './services/custom-title-strategy.service';
 import { MatPaginationIntlService } from './services/mat-paginator-intl.service';
 import { TranslocoHttpLoader } from './transloco-loader';
+import { provideTranslocoPersistLang } from '@jsverse/transloco-persist-lang';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -37,6 +38,11 @@ export const appConfig: ApplicationConfig = {
       },
       loader: TranslocoHttpLoader,
     }),
+    provideTranslocoPersistLang({
+      storage: {
+        useValue: localStorage,
+      },
+    }),
     provideAppVersion({ version: VERSION.version }),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
@@ -51,6 +57,7 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     { provide: ErrorHandler, useClass: CustomErrorHandlerService },
+    { provide: TitleStrategy, useClass: CustomTitleStrategyService },
     {
       provide: MatPaginatorIntl,
       useClass: MatPaginationIntlService,

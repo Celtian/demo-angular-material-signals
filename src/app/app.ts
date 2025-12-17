@@ -6,7 +6,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { NgxFixedFooterDirective } from 'ngx-fixed-footer';
-import { filter, map, startWith } from 'rxjs';
+import { map, startWith } from 'rxjs';
 
 import { NgxAppVersionDirective } from 'ngx-app-version';
 import { NgxUpdateAppDirective } from 'ngx-update-app';
@@ -39,8 +39,7 @@ export class App {
   public readonly transloco = inject(TranslocoService);
 
   public readonly lang = toSignal(
-    this.transloco.events$.pipe(
-      filter((e) => e.type === 'langChanged'),
+    this.transloco.langChanges$.pipe(
       startWith(this.transloco.getActiveLang()),
       map(() => this.transloco.getActiveLang()),
     ),

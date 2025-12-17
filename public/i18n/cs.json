@@ -2,6 +2,12 @@
   "action": {
     "close": "Zavřít"
   },
+  "breadcrumb": {
+    "create": "Vytvořit",
+    "edit": "Upravit",
+    "list": "Seznam",
+    "not-found": "Nenalezeno"
+  },
   "custom-confirm-dialog": {
     "default": {
       "content": "Opravdu chcete potvrdit operaci?",

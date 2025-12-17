@@ -1538,6 +1538,13 @@
     jsonc-parser "3.3.1"
     ora "9.0.0"
 
+"@jsverse/transloco-persist-lang@^8.2.0":
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/@jsverse/transloco-persist-lang/-/transloco-persist-lang-8.2.0.tgz#c3c1429856fccb2cff560d75e307825ac573373b"
+  integrity sha512-accsQa5eFgR4yv+v7Uv5gydexb8jHIKymP/tYzGqOavpThkqUzlbVS1A8VhhsiB98w3FPy7lx+pn+pSCye7noA==
+  dependencies:
+    tslib "^2.2.0"
+
 "@jsverse/transloco-utils@8.2.0", "@jsverse/transloco-utils@^8.2.0":
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/@jsverse/transloco-utils/-/transloco-utils-8.2.0.tgz#7d00ac76822bb0b89a7bccbbb9c4f81751de52ed"

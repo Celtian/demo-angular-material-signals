@@ -15,7 +15,13 @@
   <mat-toolbar>
     <div class="container m-auto text-sm">
       <xng-breadcrumb [separator]="separatorTemplate" [preserveQueryParams]="false" [preserveFragment]="false">
-        <ng-container *xngBreadcrumbItem="let breadcrumb">{{ breadcrumb }}</ng-container>
+        <ng-container *xngBreadcrumbItem="let breadcrumb; let info = info">
+          @if (info?.translate) {
+            {{ breadcrumb | transloco }}
+          } @else {
+            {{ breadcrumb }}
+          }
+        </ng-container>
       </xng-breadcrumb>
       <ng-template #separatorTemplate>
         <mat-icon>chevron_right</mat-icon>

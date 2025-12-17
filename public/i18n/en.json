@@ -2,6 +2,12 @@
   "action": {
     "close": "Close"
   },
+  "breadcrumb": {
+    "create": "Create",
+    "edit": "Edit",
+    "list": "List",
+    "not-found": "Not Found"
+  },
   "custom-confirm-dialog": {
     "default": {
       "content": "Do you want to confirm operation?",

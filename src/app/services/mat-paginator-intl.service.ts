@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { TranslocoService } from '@jsverse/transloco';
 import { marker as _ } from '@jsverse/transloco-keys-manager/marker';
+import { filter, pairwise, startWith } from 'rxjs';
 
 const I18N_MAT_PAGINATOR = {
   OF: _('mat-paginator.of'),
@@ -18,10 +19,13 @@ export class MatPaginationIntlService extends MatPaginatorIntl {
 
   constructor() {
     super();
-    this.transloco.langChanges$.subscribe(() => {
-      this.translateLabels();
-    });
-    this.translateLabels();
+    this.transloco.events$
+      .pipe(
+        pairwise(),
+        filter(([prev, curr]) => prev.type === 'langChanged' || curr.type === 'translationLoadSuccess'),
+        startWith(this.transloco.getActiveLang()),
+      )
+      .subscribe(() => this.translateLabels());
   }
 
   override getRangeLabel = (page: number, pageSize: number, length: number): string => {
