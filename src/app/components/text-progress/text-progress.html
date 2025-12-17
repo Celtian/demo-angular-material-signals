@@ -1,0 +1,5 @@
+<div class="relative flex justify-center items-center gap-1.5">
+  <mat-icon [class.opacity-0]="isProgressing()">{{ icon() }}</mat-icon>
+  <mat-spinner class="absolute! top-0 left-0" [class.!hidden]="!isProgressing()" [diameter]="24" />
+  <span>{{ text() | transloco }}</span>
+</div>

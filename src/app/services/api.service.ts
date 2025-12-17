@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { API_URL } from '../constant/api.constant';
 import { Pagination } from '../dto/pagination.dto';
 import { ExpandedPostDto, PostDto, PostInputDto } from '../dto/post.dto';
 import { UserDto } from '../dto/user.dto';
@@ -18,7 +19,6 @@ interface PostListInput {
 })
 export class ApiService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'https://jsonplaceholder.typicode.com';
 
   public list(input: PostListInput): Observable<Pagination<PostDto>> {
     const params = [`_limit=${input.limit}`, `_sort=${input.sort}`, `_order=${input.order}`];
@@ -34,7 +34,7 @@ export class ApiService {
     }
 
     return this.http
-      .get<PostDto[]>(`${this.apiUrl}/posts?${params.join('&')}`, {
+      .get<PostDto[]>(`${API_URL}/posts?${params.join('&')}`, {
         observe: 'response',
       })
       .pipe(
@@ -48,26 +48,26 @@ export class ApiService {
   }
 
   public detail(id: number): Observable<PostDto> {
-    return this.http.get<PostDto>(`${this.apiUrl}/posts/${id}`);
+    return this.http.get<PostDto>(`${API_URL}/posts/${id}`);
   }
 
   public delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/posts/${id}`);
+    return this.http.delete<void>(`${API_URL}/posts/${id}`);
   }
 
   public patch(id: number, body: Partial<PostDto>): Observable<PostDto> {
-    return this.http.patch<PostDto>(`${this.apiUrl}/posts/${id}`, body);
+    return this.http.patch<PostDto>(`${API_URL}/posts/${id}`, body);
   }
 
   public create(post: PostInputDto): Observable<PostDto> {
-    return this.http.post<PostDto>(`${this.apiUrl}/posts`, post);
+    return this.http.post<PostDto>(`${API_URL}/posts`, post);
   }
 
   public detailExpanded(id: number): Observable<ExpandedPostDto> {
-    return this.http.get<ExpandedPostDto>(`${this.apiUrl}/posts/${id}?_expand=user`);
+    return this.http.get<ExpandedPostDto>(`${API_URL}/posts/${id}?_expand=user`);
   }
 
   public user(id: number): Observable<UserDto> {
-    return this.http.get<UserDto>(`${this.apiUrl}/users/${id}`);
+    return this.http.get<UserDto>(`${API_URL}/users/${id}`);
   }
 }

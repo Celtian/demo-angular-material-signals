@@ -2,18 +2,22 @@ import { httpResource } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatIcon } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatSortModule, Sort } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { Params, Router, RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@jsverse/transloco';
+import { filter, switchMap } from 'rxjs';
 import { PostListDetail } from '../../../components/post-list-detail/post-list-detail';
 import { API_URL } from '../../../constant/api.constant';
 import { ROUTE_DEFINITION } from '../../../constant/route-definition.constant';
 import { TypeSafeMatCellDef } from '../../../directives/type-safe-mat-cell-def.directive';
 import { PostDto } from '../../../dto/post.dto';
+import { ApiService } from '../../../services/api.service';
+import { CustomConfirmDialogService } from '../../../services/custom-confirm-dialog.service';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-post-list',
@@ -21,7 +25,7 @@ import { PostDto } from '../../../dto/post.dto';
     MatPaginatorModule,
     MatTableModule,
     MatSortModule,
-    MatIcon,
+    MatIconModule,
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
@@ -38,7 +42,10 @@ import { PostDto } from '../../../dto/post.dto';
 export class PostList {
   public readonly ROUTE_DEFINITION = ROUTE_DEFINITION;
 
+  private readonly notification = inject(NotificationService);
+  private readonly apiService = inject(ApiService);
   private readonly router = inject(Router);
+  private readonly confirm = inject(CustomConfirmDialogService);
 
   public readonly pageSize = input(5);
   public readonly pageIndex = input(1);
@@ -92,8 +99,14 @@ export class PostList {
     });
   }
 
-  public onDelete() {
-    throw new Error('Method not implemented.');
+  public onDelete(id: number) {
+    this.confirm
+      .open('DELETE')
+      .pipe(
+        filter((confirmed) => !!confirmed),
+        switchMap(() => this.apiService.delete(id)),
+      )
+      .subscribe(() => this.notification.success('DELETE'));
   }
 
   public onClear(): void {

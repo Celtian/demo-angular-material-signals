@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButton } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
@@ -20,7 +20,7 @@ import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
     TranslocoPipe,
     BreadcrumbComponent,
     BreadcrumbItemDirective,
-    MatIcon,
+    MatIconModule,
     NgxFixedFooterDirective,
   ],
   templateUrl: './app.html',

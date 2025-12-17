@@ -28,12 +28,13 @@
           <app-user-info [user]="post.user" />
         </mat-card-content>
         <mat-card-actions align="end">
-          <button mat-button (click)="onDelete()">
-            {{ 'uni.delete' | transloco }}
+          <button mat-button [disabled]="isProcessing()" (click)="onDelete()">
+            <app-text-progress [isProgressing]="isDeleting()" [type]="'delete'" />
           </button>
-          <a mat-button color="primary" [routerLink]="['/' + id() + '/' + ROUTE_DEFINITION.POSTS.EDIT]">{{
-            'uni.edit' | transloco
-          }}</a>
+          <a mat-button [disabled]="isProcessing()" [routerLink]="['/' + id() + '/' + ROUTE_DEFINITION.POSTS.EDIT]">
+            <mat-icon>edit</mat-icon>
+            <span>{{ 'uni.edit' | transloco }}</span>
+          </a>
         </mat-card-actions>
       } @else {
         <mat-card-content class="flex flex-col gap-2 text-center">

@@ -1,9 +1,15 @@
 <mat-card>
   <mat-card-content>
     <div class="flex items-end justify-end gap-2">
-      <button mat-button (click)="onClear()">{{ 'uni.clear-filters' | transloco }}</button>
+      <button mat-button (click)="onClear()">
+        <mat-icon>clear</mat-icon>
+        {{ 'uni.clear-filters' | transloco }}
+      </button>
 
-      <a mat-button [routerLink]="['/' + ROUTE_DEFINITION.POSTS.CREATE]">{{ 'uni.create' | transloco }}</a>
+      <a mat-button [routerLink]="['/' + ROUTE_DEFINITION.POSTS.CREATE]">
+        <mat-icon>add</mat-icon>
+        {{ 'uni.create' | transloco }}</a
+      >
     </div>
     <table
       mat-table
@@ -62,7 +68,7 @@
               <mat-icon>edit</mat-icon>
               <span>{{ 'uni.edit' | transloco }}</span>
             </a>
-            <button mat-menu-item (click)="onDelete()">
+            <button mat-menu-item (click)="onDelete(row.id)">
               <mat-icon>delete</mat-icon>
               <span>{{ 'uni.delete' | transloco }}</span>
             </button>

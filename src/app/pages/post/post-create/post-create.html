@@ -21,8 +21,10 @@
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-button type="reset">{{ 'uni.reset' | transloco }}</button>
-      <button mat-button type="submit">{{ 'uni.submit' | transloco }}</button>
+      <button mat-button type="reset"><mat-icon>restore</mat-icon> {{ 'uni.reset' | transloco }}</button>
+      <button mat-button type="submit">
+        <app-text-progress [isProgressing]="isSaving()" [type]="'save'" />
+      </button>
     </mat-card-actions>
   </mat-card>
 </form>
