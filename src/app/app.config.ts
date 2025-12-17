@@ -12,6 +12,7 @@ import { routes } from './app.routes';
 import { CustomErrorHandlerService } from './services/custom-error-handler.service';
 import { MatPaginationIntlService } from './services/mat-paginator-intl.service';
 import { TranslocoHttpLoader } from './transloco-loader';
+import { provideServiceWorker } from '@angular/service-worker';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -50,5 +51,9 @@ export const appConfig: ApplicationConfig = {
       provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
       useValue: { horizontalPosition: 'end', verticalPosition: 'top', duration: 2000 } as MatSnackBarConfig,
     },
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
 };

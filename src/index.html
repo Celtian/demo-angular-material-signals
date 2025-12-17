@@ -6,10 +6,32 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#3f51b5" />
   </head>
-  <body>
-    <app-root></app-root>
+  <body class="mat-typography">
+    <app-root>
+      <div class="flex items-center justify-center w-screen h-screen p-4">
+        <svg
+          class="max-w-xs text-indigo-700 dark:text-white"
+          fill="currentColor"
+          x="0"
+          y="0"
+          width="320"
+          height="320"
+          viewBox="0 0 960 960"
+        >
+          <g>
+            <polygon points="562.6,109.8 804.1,629.5 829.2,233.1 	" />
+            <polygon points="624.9,655.9 334.3,655.9 297.2,745.8 479.6,849.8 662,745.8 	" />
+            <polygon points="384.1,539.3 575.2,539.3 479.6,307 	" />
+            <polygon points="396.6,109.8 130,233.1 155.1,629.5 	" />
+          </g>
+        </svg>
+      </div>
+    </app-root>
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
   </body>
 </html>
