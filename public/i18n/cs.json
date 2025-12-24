@@ -4,6 +4,7 @@
   },
   "breadcrumb": {
     "create": "Vytvořit",
+    "detail": "Detail",
     "edit": "Upravit",
     "list": "Seznam",
     "not-found": "Nenalezeno"

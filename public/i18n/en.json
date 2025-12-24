@@ -4,6 +4,7 @@
   },
   "breadcrumb": {
     "create": "Create",
+    "detail": "Detail",
     "edit": "Edit",
     "list": "List",
     "not-found": "Not Found"
