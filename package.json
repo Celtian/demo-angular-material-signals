@@ -1,6 +1,15 @@
 {
   "name": "demo-angular-material-signals",
   "version": "0.0.0",
+  "author": {
+    "name": "Dominik Hladík",
+    "email": "dominik.hladik@seznam.cz",
+    "url": "https://github.com/Celtian"
+  },
+  "license": "MIT",
+  "private": true,
+  "description": "Demo of angular material signals",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -17,8 +26,6 @@
     "release:patch": "git checkout master && npm version patch -m \"chore(update): patch release %s 🐛 \"",
     "fix-vulnerabilities": "npx yarn-audit-fix && npx browserslist --update-db"
   },
-  "private": true,
-  "packageManager": "yarn@1.22.22",
   "dependencies": {
     "@angular/cdk": "21.0.5",
     "@angular/common": "^21.0.6",
