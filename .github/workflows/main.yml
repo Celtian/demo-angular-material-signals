@@ -1,0 +1,47 @@
+name: Build & Publish
+
+# on:
+#   push:
+#     tags:
+#       - 'v*'
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  install-and-build:
+    name: 🛠️ Install, Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🗜️ Checkout
+        uses: actions/checkout@v4
+
+      - name: 🗜️ Setup node version
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: 🛠️ Set git info
+        uses: ./.github/actions/git-info
+
+      - name: 🛠️ Install
+        uses: ./.github/actions/cached-deps
+
+      - name: 🧹 Lint
+        run: yarn lint
+
+      - name: 📦 Build demo app
+        run: yarn build --base-href https://celtian.github.io/demo-angular-material-signals/
+
+      - name: 🛠️ Copy index.html to 404.html
+        run: cp ./dist/demo-angular-material-signals/browser/index.html ./dist/demo-angular-material-signals/browser/404.html
+
+      - name: 🚀 Deploy Github Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_branch: gh-pages
+          publish_dir: ./dist/demo-angular-material-crud/browser
