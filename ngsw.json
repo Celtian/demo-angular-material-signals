@@ -1,0 +1,107 @@
+{
+  "configVersion": 1,
+  "timestamp": 1766610962828,
+  "index": "https://celtian.github.io/demo-angular-material-signals/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://celtian.github.io/demo-angular-material-signals/chunk-2Y7BTRM4.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-3BVYCELW.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-5QVEC5KK.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-6AIFCP3M.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-BSPDICRF.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-DMCCVDIJ.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-DOYJ2ZW3.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-ER5NU4HT.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-HVINU4UZ.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-JETJOLBQ.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-NEUCK2VB.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-TE5FUKSI.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-V3ELAW7V.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-XFNJPRA2.js",
+        "https://celtian.github.io/demo-angular-material-signals/chunk-ZKQ76JXD.js",
+        "https://celtian.github.io/demo-angular-material-signals/favicon.ico",
+        "https://celtian.github.io/demo-angular-material-signals/index.html",
+        "https://celtian.github.io/demo-angular-material-signals/main-FYIO57VW.js",
+        "https://celtian.github.io/demo-angular-material-signals/manifest.webmanifest",
+        "https://celtian.github.io/demo-angular-material-signals/styles-KDIFAGDT.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://celtian.github.io/demo-angular-material-signals/icons/icon-128x128.png",
+        "https://celtian.github.io/demo-angular-material-signals/icons/icon-144x144.png",
+        "https://celtian.github.io/demo-angular-material-signals/icons/icon-152x152.png",
+        "https://celtian.github.io/demo-angular-material-signals/icons/icon-192x192.png",
+        "https://celtian.github.io/demo-angular-material-signals/icons/icon-384x384.png",
+        "https://celtian.github.io/demo-angular-material-signals/icons/icon-512x512.png",
+        "https://celtian.github.io/demo-angular-material-signals/icons/icon-72x72.png",
+        "https://celtian.github.io/demo-angular-material-signals/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://celtian.github.io/demo-angular-material-signals/chunk-2Y7BTRM4.js": "12c3814578f2f1767978fdb3c33ea90bc094cd09",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-3BVYCELW.js": "677116d04a8eb0d9a9f7fe8b4c9428db62a944ad",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-5QVEC5KK.js": "da6ad73d7a6383a0721908d7e87986d0b34a9991",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-6AIFCP3M.js": "7995f7c67dc65f270c2018aa850f2b43a75004ab",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-BSPDICRF.js": "b39d5ed2648d94a1ad17cbf38e0ff0be1cb66ae8",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-DMCCVDIJ.js": "1c52b02213340203f9f54b0fb15820b8a758d70d",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-DOYJ2ZW3.js": "58e026ad296baa29cd58622b64433244a6f98a67",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-ER5NU4HT.js": "d7072ff56d970b91e3e06bcc4aa2b1dec5192763",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-HVINU4UZ.js": "117ebd2943519aff14b55dc3e77e890f6533cf58",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-JETJOLBQ.js": "c12b210b7b1d93eebe7051f15e337a8a9bf38490",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-NEUCK2VB.js": "4b82036cb715bb972e335583fc72b77e575d86c5",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-TE5FUKSI.js": "c40fb46343f87751c536139a415ab12516e659b2",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-V3ELAW7V.js": "3d8763e9f1e7210367aac133a7b4f8fe67e88f03",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-XFNJPRA2.js": "4ab8d019fcfb20c97ce1a46c12803c0984ef2c53",
+    "https://celtian.github.io/demo-angular-material-signals/chunk-ZKQ76JXD.js": "21802a6a705b03dc9bf0877db1a026b0faec200e",
+    "https://celtian.github.io/demo-angular-material-signals/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "https://celtian.github.io/demo-angular-material-signals/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "https://celtian.github.io/demo-angular-material-signals/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "https://celtian.github.io/demo-angular-material-signals/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "https://celtian.github.io/demo-angular-material-signals/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "https://celtian.github.io/demo-angular-material-signals/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "https://celtian.github.io/demo-angular-material-signals/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "https://celtian.github.io/demo-angular-material-signals/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "https://celtian.github.io/demo-angular-material-signals/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "https://celtian.github.io/demo-angular-material-signals/index.html": "a4ee880c967c43f65560d3c5dcbd5f1bcacdd2a1",
+    "https://celtian.github.io/demo-angular-material-signals/main-FYIO57VW.js": "254920526f7cb359067d8e4972c206643ad4576b",
+    "https://celtian.github.io/demo-angular-material-signals/manifest.webmanifest": "6e022a667bce0fd0ed9cc4cf09fde593aead4613",
+    "https://celtian.github.io/demo-angular-material-signals/styles-KDIFAGDT.css": "26fbd9d0691944a6afa1bd47cc5c5bd254ab68a8"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
