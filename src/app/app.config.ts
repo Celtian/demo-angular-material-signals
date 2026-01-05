@@ -7,17 +7,17 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarConfig } from '@angular/mater
 import { provideRouter, TitleStrategy, withComponentInputBinding, withViewTransitions } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideTransloco } from '@jsverse/transloco';
+import { provideTranslocoPersistLang } from '@jsverse/transloco-persist-lang';
 import { provideAppVersion } from 'ngx-app-version';
 import { provideFixedFooter } from 'ngx-fixed-footer';
 import { provideUpdateApp } from 'ngx-update-app';
-import { VERSION } from '../version';
 import { routes } from './app.routes';
 import { UpdateAppService } from './components/update-app/update-app.service';
 import { CustomErrorHandlerService } from './services/custom-error-handler.service';
 import { CustomTitleStrategyService } from './services/custom-title-strategy.service';
 import { MatPaginationIntlService } from './services/mat-paginator-intl.service';
 import { TranslocoHttpLoader } from './transloco-loader';
-import { provideTranslocoPersistLang } from '@jsverse/transloco-persist-lang';
+import { VERSION_INFO } from './version';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -43,7 +43,7 @@ export const appConfig: ApplicationConfig = {
         useValue: localStorage,
       },
     }),
-    provideAppVersion({ version: VERSION.version }),
+    provideAppVersion({ version: VERSION_INFO.version }),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000',
