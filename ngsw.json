@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1766611534564,
+  "timestamp": 1767645217747,
   "index": "https://celtian.github.io/demo-angular-material-signals/index.html",
   "assetGroups": [
     {
@@ -28,7 +28,7 @@
         "https://celtian.github.io/demo-angular-material-signals/chunk-ZLFHQGD6.js",
         "https://celtian.github.io/demo-angular-material-signals/favicon.ico",
         "https://celtian.github.io/demo-angular-material-signals/index.html",
-        "https://celtian.github.io/demo-angular-material-signals/main-EOGSXDY3.js",
+        "https://celtian.github.io/demo-angular-material-signals/main-XDDGNH6Q.js",
         "https://celtian.github.io/demo-angular-material-signals/manifest.webmanifest",
         "https://celtian.github.io/demo-angular-material-signals/styles-KDIFAGDT.css"
       ],
@@ -80,8 +80,8 @@
     "https://celtian.github.io/demo-angular-material-signals/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "https://celtian.github.io/demo-angular-material-signals/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "https://celtian.github.io/demo-angular-material-signals/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "https://celtian.github.io/demo-angular-material-signals/index.html": "4c431eb73eed4245339b8ccaf16f3c37ceb3ec69",
-    "https://celtian.github.io/demo-angular-material-signals/main-EOGSXDY3.js": "c4f0f32a24f5628e887165735e2d86ea3b8a84f1",
+    "https://celtian.github.io/demo-angular-material-signals/index.html": "0b9e14517489bea7c254ebfcd847b9ca9d90dfaa",
+    "https://celtian.github.io/demo-angular-material-signals/main-XDDGNH6Q.js": "435849f37e86a37177289c6c3c3ce65fd464efe0",
     "https://celtian.github.io/demo-angular-material-signals/manifest.webmanifest": "6e022a667bce0fd0ed9cc4cf09fde593aead4613",
     "https://celtian.github.io/demo-angular-material-signals/styles-KDIFAGDT.css": "26fbd9d0691944a6afa1bd47cc5c5bd254ab68a8"
   },
