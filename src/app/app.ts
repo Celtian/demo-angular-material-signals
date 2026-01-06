@@ -13,6 +13,7 @@ import { NgxUpdateAppDirective } from 'ngx-update-app';
 import { BreadcrumbComponent, BreadcrumbItemDirective } from 'xng-breadcrumb';
 import { ThemeComponent } from './components/theme/theme.component';
 import { ThemeDirective } from './components/theme/theme.directive';
+import { VERSION_INFO } from './version';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,7 @@ import { ThemeDirective } from './components/theme/theme.directive';
   hostDirectives: [NgxAppVersionDirective, NgxUpdateAppDirective, ThemeDirective],
 })
 export class App {
-  public readonly endYear = new Date().getFullYear(); // todo replace
+  public readonly endYear = new Date(VERSION_INFO.date).getFullYear();
   public readonly transloco = inject(TranslocoService);
 
   public readonly lang = toSignal(
