@@ -1,6 +1,6 @@
 import { httpResource } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal } from '@angular/core';
-import { disabled, Field, form, required } from '@angular/forms/signals';
+import { disabled, form, FormField, required } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -30,7 +30,7 @@ const DEFAULT_POST: Pick<PostDto, 'title' | 'body'> = { title: '', body: '' };
     MatButtonModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    Field,
+    FormField,
     TranslocoPipe,
     ClearSuffix,
     TextProgress,

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { disabled, Field, form, required } from '@angular/forms/signals';
+import { disabled, form, FormField, required } from '@angular/forms/signals';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,7 +26,7 @@ const DEFAULT_POST: PostInputDto = { title: '', body: '', userId: 1 };
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    Field,
+    FormField,
     TranslocoPipe,
     ClearSuffix,
     TextProgress,
