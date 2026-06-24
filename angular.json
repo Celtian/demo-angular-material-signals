@@ -3,6 +3,9 @@
   "version": 1,
   "cli": {
     "packageManager": "yarn",
+    "cache": {
+      "enabled": false
+    },
     "schematicCollections": [
       "angular-eslint"
     ],
@@ -55,6 +58,13 @@
           },
           "configurations": {
             "production": {
+              "optimization": {
+                "scripts": true,
+                "styles": true,
+                "fonts": {
+                  "inline": false
+                }
+              },
               "budgets": [
                 {
                   "type": "initial",
