@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withXhr } from '@angular/common/http';
 import { ApplicationConfig, ErrorHandler, inject, isDevMode, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { MAT_CARD_CONFIG, MatCardConfig } from '@angular/material/card';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
@@ -23,7 +23,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes, withViewTransitions(), withComponentInputBinding()),
-    provideHttpClient(),
+    provideHttpClient(withXhr()),
     provideFixedFooter({
       containerSelector: '.permanent-main',
       cssAttribute: 'margin',

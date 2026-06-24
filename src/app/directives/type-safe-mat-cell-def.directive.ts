@@ -1,4 +1,5 @@
 import { CdkCellDef } from '@angular/cdk/table';
+import type { RowContext } from '@angular/cdk/table';
 import { Directive, input } from '@angular/core';
 import { MatCellDef, MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
@@ -11,7 +12,9 @@ import { Observable } from 'rxjs';
 export class TypeSafeMatCellDef<T> extends MatCellDef {
   readonly matCellDefDataSource = input.required<T[] | Observable<T[]> | MatTableDataSource<T>>();
 
-  static ngTemplateContextGuard<T>(dir: TypeSafeMatCellDef<T>, ctx: unknown): ctx is { $implicit: T; index: number } {
+  static ngTemplateContextGuard<T>(dir: TypeSafeMatCellDef<T>, ctx: unknown): ctx is RowContext<T> {
+    void dir;
+    void ctx;
     return true;
   }
 }
