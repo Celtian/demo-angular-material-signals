@@ -8,7 +8,7 @@ This repository is a standalone Angular 22 application demonstrating signal-base
 with the JSONPlaceholder API.
 
 - Use Node.js 24 as specified by `.nvmrc`.
-- Use Yarn 1.22.22 for dependency management and repository scripts.
+- Use Bun 1.3.14 for dependency management and repository scripts.
 - The application uses standalone components, zoneless change detection, and `ChangeDetectionStrategy.OnPush`.
 - Routes lazy-load components and bind route and query parameters to signal inputs.
 - UI code uses Angular Material, component CSS, a custom Material theme, and Tailwind CSS.
@@ -20,19 +20,19 @@ maintain that file manually.
 ## Common commands
 
 ```sh
-yarn install
-yarn start
-yarn build
-yarn test
-yarn lint
+bun install
+bun run start
+bun run build
+bun run test
+bun run lint
 ```
 
 Run the narrowest relevant checks while developing. Before handing off code changes, run:
 
 ```sh
-yarn lint
-yarn test
-yarn build
+bun run lint
+bun run test
+bun run build
 ```
 
 If a full check cannot be run, report exactly which checks were run and which remain. Documentation-only changes
@@ -41,13 +41,13 @@ do not require an Angular build.
 ## Working practices
 
 - Preserve unrelated user changes in the working tree.
-- Keep changes focused; do not update dependencies, `yarn.lock`, deployment configuration, or generated files
+- Keep changes focused; do not update dependencies, `bun.lock`, deployment configuration, or generated files
   unless the task requires it.
 - Prefer existing dependencies and patterns over introducing new packages or abstractions.
 - Use Angular CLI schematics when scaffolding Angular artifacts so the settings in `angular.json` are applied:
 
   ```sh
-  yarn ng generate component path/to/component
+  bun run ng generate component path/to/component
   ```
 
 - Keep tests beside the source as `*.spec.ts`.
@@ -103,7 +103,7 @@ do not require an Angular build.
 - Use the existing extraction workflow when introducing translation keys:
 
   ```sh
-  yarn i18n:extract
+  bun run i18n:extract
   ```
 
 - The extraction command can remove unused keys. Review both locale files and replace generated placeholder
